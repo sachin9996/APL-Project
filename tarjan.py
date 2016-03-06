@@ -1,3 +1,5 @@
+
+
 def tarjan(adj_list):
 	N = len(adj_list) - 1
 	global indices, lowest_link, is_onstack
