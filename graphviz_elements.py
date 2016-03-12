@@ -1,4 +1,4 @@
-""" Class for each node and edge of the graph to handle properties  """
+""" Class for each node and edge of the graph to handle properties """
 
 import aux_data #To be populated
 
@@ -13,7 +13,7 @@ class graphviz_node:
         self.color = color
 
         #Node properties (UI)
-        self.component = 0;
+        self.component = -1;
         self.index = 0
         self.lowest_link = 0
         self.is_onstack = 0

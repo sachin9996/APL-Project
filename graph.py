@@ -43,7 +43,7 @@ def inp_graph(inp=sys.stdin):
     g = [[] for _ in range(n+1)]
 
     nodes = [None]
-    edges = []
+    edges = {}
 
     # Creating an array of gz_nodes to keep track of each nodes's properties
 
@@ -55,7 +55,7 @@ def inp_graph(inp=sys.stdin):
     for i in range(m):
         u, v= map(int, inp.readline().split())
         g[u].append(v)
-        edges.append(gz_edge(fro = u, to = v))
+        edges[(u,v)] = gz_edge(fro = u, to = v)
 
     return g, nodes, edges
 
@@ -69,7 +69,7 @@ def disp_graph(graph, nodes, edges, filename="gviz_out"):
     for n in nodes[1:]:
             dot.node(n.key, **n.UI_properties())
 
-    for e in edges:
+    for e in edges.values():
             dot.edge(str(e.fro), str(e.to), **e.UI_properties())
     dot = apply_styles(dot)
     dot.render(filename,view=True)
