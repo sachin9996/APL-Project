@@ -4,13 +4,13 @@ import aux_data #To be populated
 
 class graphviz_node:
 
-    def __init__(self,key,label,xlabel,color = '#FFFFFF', data=None):
+    def __init__(self,key,label,xlabel,color = '#000000', data=None):
 
         #Node properties (algorithm)
         self.key = key
         self.label = label
-        self.xlabel = xlabel
         self.color = color
+        self.xlabel=''
 
         #Node properties (UI)
         self.component = -1;
@@ -23,6 +23,9 @@ class graphviz_node:
 
     def UI_properties(self):
         return {'label': self.label,'xlabel':self.xlabel,'fillcolor': self.color}
+
+    def update_label(self):
+        self.xlabel=str(self.index)+'/'+str(self.lowest_link)
 
 class graphviz_edge:
 

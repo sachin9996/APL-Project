@@ -30,6 +30,7 @@ def _find_SCC(graph, nodes, edges, v):
 	global index, count, color, filename
 	nodes[v].index = index # Assign a unique number to each index (visiting order)
 	nodes[v].lowest_link = index
+	nodes[v].update_label()
 	index = index + 1
 	stack.append(v)	# Push the node onto the stack
 	nodes[v].is_onstack = True
@@ -44,9 +45,11 @@ def _find_SCC(graph, nodes, edges, v):
 			edges[v, w].style = 'dashed'
 			_find_SCC(graph, nodes, edges, w) # Recurse on that node
 			nodes[v].lowest_link = min(nodes[v].lowest_link, nodes[w].lowest_link) # Since any node accessible from w is accessible from v
+			nodes[v].update_label()
 
 		elif nodes[w].is_onstack == True: # If node has already been visited
 			nodes[v].lowest_link = min(nodes[w].lowest_link, nodes[w].index) # Update nodes[v].lowest_link
+			nodes[v].update_label()
 			nodes[w].color = traversal_color
 			edges[v, w].color = traversal_color
 			edges[v, w].style = 'dashed'

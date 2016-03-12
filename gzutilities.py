@@ -18,14 +18,14 @@ style = {
     'nodes': {
         'fontname': 'Helvetica',
         'shape': 'circle',
-        'fontcolor': 'black',
-        'color': 'white',
+        'fontcolor': '#FFFFFF',
+        'color': 'black',
         'style': 'filled',
         'fillcolor': '#006699',
     },
     'edges': {
         'style': 'bold',
-        'color': 'black',
+        'color': 'white',
         'arrowhead': 'open',
         'fontname': 'Courier',
         'fontsize': '12',

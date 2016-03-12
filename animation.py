@@ -1,5 +1,5 @@
 """
-Custom Animation library
+Custom Animation Library
 
 """
 
@@ -10,11 +10,12 @@ import cv2
 def image_path(folder,i):
 	return './'+folder+'/'+str(i)+'.png'
 
-# function which displays 'img' in a window named 'Tarjan Algorithm' and waits 'delay's before moving on to load the next
+# function which displays 'img' in a window named 'Tarjan's Algorithm - Strongly Connected Components' 
+# and waits 'delay's before moving on to load the next
 
 def show_image(img,delay):
 	img = cv2.imread(img)
- 	cv2.imshow('Tarjan Algorithm',img)
+ 	cv2.imshow("Tarjan's Algorithm - Strongly Connected Components",img)
  	cv2.waitKey(int(delay))
 
 # Displays the working of the algorithm sequentially at the given fps
