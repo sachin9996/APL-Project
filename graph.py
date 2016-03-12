@@ -72,4 +72,4 @@ def disp_graph(graph, nodes, edges, filename="gviz_out"):
     for e in edges.values():
             dot.edge(str(e.fro), str(e.to), **e.UI_properties())
     dot = apply_styles(dot)
-    dot.render(filename,view=True)
+    dot.render(filename,view=False)

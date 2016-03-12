@@ -9,6 +9,7 @@ connected_comps = None
 color = None
 traversal_color = '0 1 1'
 
+
 r = lambda a, b:random.randrange(a, b)*1.0/1000
 
 def tarjan_SCC(graph, nodes, edges):
@@ -23,6 +24,7 @@ def tarjan_SCC(graph, nodes, edges):
 	for i in range (1, N+1):
 		if nodes[i].index == 0:
 			_find_SCC(graph, nodes, edges, i)
+	return filename
 
 def _find_SCC(graph, nodes, edges, v):
 	global index, count, color, filename
