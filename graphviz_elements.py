@@ -1,4 +1,4 @@
-""" Class for each node and edge of the graph to handle properties """
+""" Class for each node and edge of the graph to handle properties  """
 
 import aux_data #To be populated
 
