@@ -5,6 +5,8 @@ Custom Animation Library
 
 import cv2
 
+window_name = "Tarjan's Algorithm - Strongly Connected Components"
+
 # defines the image path
 
 def image_path(folder,i):
@@ -15,7 +17,9 @@ def image_path(folder,i):
 
 def show_image(img,delay):
 	img = cv2.imread(img)
- 	cv2.imshow("Tarjan's Algorithm - Strongly Connected Components",img)
+	#img = cv2.resize(img, (0,0), fx=0.5, fy=0.5) 
+	cv2.namedWindow(window_name, cv2.WINDOW_NORMAL)
+ 	cv2.imshow(window_name,img)
  	cv2.waitKey(int(delay))
 
 # Displays the working of the algorithm sequentially at the given fps
