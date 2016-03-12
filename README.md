@@ -37,9 +37,6 @@ animation.py:
 			
 aux_data.py:
 			It has a class named data which takes a name and stores it in the class variable 'name'.
-			
-curiosity.py:
-			 #To be edited
 
 graph.py:
 		 This file is for creating a graph from the given input in the test_graph and dispaying it in the form of an image.It accepts input in the following format:
