@@ -9,7 +9,8 @@ Each element v ,in the list indexed at u, is a vertex and it indicates a directe
 
 import graphviz
 import sys
-from graphviz_node import graphviz_node as gz_node
+from graphviz_elements import graphviz_node as gz_node
+from graphviz_elements import graphviz_edge as gz_edge
 from gzutilities import apply_styles
 
 """ 
@@ -39,37 +40,36 @@ def inp_graph(inp=sys.stdin):
    
     n, m = map(int, inp.readline().split())
 
-    g= [[] for _ in range(n+1)]
-    nodes=[]
+    g = [[] for _ in range(n+1)]
 
-    # Creating an array of gz_nodes to keep track of each nodes's UI properties
+    nodes = [None]
+    edges = []
+
+    # Creating an array of gz_nodes to keep track of each nodes's properties
 
     for i in xrange(1,n+1):
-        x=gz_node(str(i),str(i),'');
-        nodes.append((x.id,x.properties()))
+        nodes.append(gz_node(key = str(i), label = str(i), xlabel = ''));
 
-    # print nodes
+    # Creating an array of gz_edges to keep track of each edge's properties
 
     for i in range(m):
         u, v= map(int, inp.readline().split())
         g[u].append(v)
+        edges.append(gz_edge(fro = u, to = v))
 
-    return g, n, m, nodes
+    return g, nodes, edges
 
 """ Function for displaying the graph using Graphviz """
 """ Renders image to filename.png """
 
-def disp_graph(graph,nodes,filename="gviz_out"):
+def disp_graph(graph, nodes, edges, filename="gviz_out"):
 
     dot = graphviz.Digraph(comment="Tarjan Graph", format='png')
 
-    n = len(graph)
+    for n in nodes[1:]:
+            dot.node(n.key, **n.UI_properties())
 
-    for k in nodes:
-            dot.node(k[0], **k[1])
-
-    for i in xrange(1,n):
-        for j in graph[i]:
-                dot.edge(str(i), str(j))
+    for e in edges:
+            dot.edge(str(e.fro), str(e.to), **e.UI_properties())
     dot = apply_styles(dot)
     dot.render(filename,view=True)

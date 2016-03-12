@@ -1,8 +1,18 @@
+import random
 
+index = 1
+count = 0
+stack = []
+connected_comps = []
 
-def tarjan(adj_list):
+def tarjan_SCC(adj_list):
 	N = len(adj_list) - 1
 	global indices, lowest_link, is_onstack
+	global connected_comps, index, count
+	connected_comps = []
+	stack = [] #Must reinitialize these things if called repeatedly
+	index = 1 
+	count = 0
 	indices = [0]*(N+1) # Order in which nodes are visited
 	is_onstack = [False]*(N+1) # Boolean array to check whether a node is on the stack or not
 	lowest_link = [0]*(N+1) # Lowest index that is accessible from a given node
@@ -14,7 +24,7 @@ def tarjan(adj_list):
 
 def find_SCC(adj_list, v):
 	global index, count
-	indices[v] = index # Assign a unique number to eaach index (visiting order)
+	indices[v] = index # Assign a unique number to each index (visiting order)
 	lowest_link[v] = index
 	index = index + 1
 	stack.append(v)	# Push the node onto the stack
@@ -38,16 +48,28 @@ def find_SCC(adj_list, v):
 	
 	return
 
+def color_code_edges(adj_list, nodes, edges, connected_comps):
+	r = lambda:random.randrange(255)
+	n = len(connected_comps)
+	color_list = ['#%02X%02X%02X' % (r(), r(), r()) for i in range(n)] #Generating random colours
+	for i in range(n):
+		for j in connected_comps[i]:
+			nodes[j].component = i #Assigning a node a component
+			nodes[j].color = color_list[i] #Assigning a node a colour
+
+	for m in edges:
+		#Edge between 2 edges of a component
+		if nodes[m.fro].component == nodes[m.to].component:
+			m.color = color_list[nodes[m.fro].component] 
+			m.style = 'solid'
+
+		#Other edge
+		else:
+			m.color = 'black'
+			m.style = 'dashed'
+
+	return adj_list, nodes, edges
+
 indices = []
 lowest_link = []
 is_onstack = []
-
-index = 1
-count = 0
-stack = []
-connected_comps = []
-
-#Adjacency list (1 based indexing, which is why first element must be [])
-al = [[], [3, 4], [1], [2], [5], []]
-
-print tarjan(al)
