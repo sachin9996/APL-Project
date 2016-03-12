@@ -15,7 +15,6 @@ def tarjan_SCC(graph, nodes, edges):
 	N = len(graph) - 1
 	global filename, connected_comps, index, count, color, stack
 	color = str(r(300,1000)) + ' ' + str(r(800,1000)) + ' ' + str(r(800,1000))
-	#color = '0.5 0.999 0.999'
 	connected_comps = []
 	stack = []
 	index = 1 
@@ -69,7 +68,7 @@ def _find_SCC(graph, nodes, edges, v):
 				else:
 					edges[(u,v)].color = 'black'
 					edges[(u,v)].style = 'dotted'
-		color = str(r(3,1000)) + ' ' + str(r(8,1000)) + ' ' + str(r(8,1000))
+		color = str(r(3,1000)) + ' ' + str(r(800,1000)) + ' ' + str(r(800,1000))
 		count = count + 1
 		disp_graph(graph, nodes, edges, 'Pictures/'+str(filename))
 		filename += 1	
