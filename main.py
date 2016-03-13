@@ -6,8 +6,13 @@ import sys
 #input from file specified as command line arguement
 
 if(len(sys.argv)==2):
-	test_graph = open(sys.argv[1] ,'r')
+	try:
+		test_graph = open(sys.argv[1] ,'r')
+	except IOError:                     
+		print "The specified file does not exist, Enter another file name:"
+		test_graph=sys.stdin
 else:
+	print "The number of arguments is not one. Enter the file name:"
 	test_graph= sys.stdin
 
 graph, nodes, edges = inp_graph(test_graph)
