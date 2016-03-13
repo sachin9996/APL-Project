@@ -1,7 +1,10 @@
 #Written to test_graph1
+
 from random import randrange as r
-def generate(n=10, m=18):
-	f = open('test_graph1' ,'w')
+import sys
+
+def generate(n=10, m=18, file='test_graph1'):
+	f = open(file ,'w')
 	f.write(str(n)+' '+str(m)+'\n')
 	for i in range(m):
 		u = r(1,n+1)
@@ -10,4 +13,10 @@ def generate(n=10, m=18):
 
 	f.close()
 
-generate()
+if(len(sys.argv)==4):
+	n = int(sys.argv[1])
+	m = int(sys.argv[2])
+	s = sys.argv[3]
+	generate(n,m,s)
+else:
+	generate()

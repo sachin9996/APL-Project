@@ -45,7 +45,7 @@ It has a class named data which takes a name and stores it in the class variable
 
 graph.py:
 
-This file is for creating a graph from the given input in the test_graph and dispaying it in the form of an image.It accepts input in the following format:
+This file is for creating a graph from the given input and displaying it in the form of an image.It accepts input in the following format:
 
 n m 
 u1 v1 
@@ -69,11 +69,15 @@ It defines the style class for each node and edge. It defines some important fun
 			   
 main.py:
 
-This is the main function for the project. It calls other functions present in other modules. It takes input from the input file as command line argument and applies tarjan's algorithm on it and displays the final animated sequence showing the step-by-step working of the algorithm on the input graph.
+This is the main function for the project. It calls other functions present in other modules. It takes input from the input file given as command line argument (default is standard input) and applies tarjan's algorithm on it and displays the final animated sequence showing the step-by-step working of the algorithm on the input graph.
 		
 random_graph.py:
 
-It generates a random graph used as an input file for the program with the given number of vertices and edges. The default number of edges and nodes are 18 and 10 respectively. 
+Usage: python random_graph.py n <optional,default=10> m <optional,default=18> filename <optional,default=test_graph1>
+
+n - number of vertices m - number of edges filename - file to write into
+
+It generates a random graph with the given number of vertices and edges (given as command-line arguements) and writes it into 'filename' which can be then be used as a input file to the program. The default number of edges and nodes are 18 and 10 respectively. 
 
 tarjan.py:
 
@@ -82,7 +86,7 @@ This file contains the program for running tarjan's algorithm on a graph. It gen
 EXECUTION
 ---------------------------------------------------------------------------------------
 
-The program should be executed in command line by the following command: python main.py
+The program should be executed in command line by the following command: python main.py input_file <optional,default=sys.stdin>
 	
 It takes the input graph specified through input file, given as command-line argument, and applies Tarjan's algorithm on it and displays the final result as a step by step animation of the working of the algorithm which finaly produces the graph with isolated strongly connected components.
 
