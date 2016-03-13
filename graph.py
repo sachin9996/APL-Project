@@ -37,7 +37,7 @@ Function returns graph,number of vertices,number of edges,nodes(includes the UI 
 """
 
 def inp_graph(inp=sys.stdin):
-   
+
     n, m = map(int, inp.readline().split())
 
     g = [[] for _ in range(n+1)]
