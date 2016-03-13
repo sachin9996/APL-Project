@@ -90,12 +90,6 @@ The program should be executed in command line by the following command: python 
 	
 It takes the input graph specified through input file, given as command-line argument, and applies Tarjan's algorithm on it and displays the final result as a step by step animation of the working of the algorithm which finaly produces the graph with isolated strongly connected components.
 
-Possible Errors:
-
-When the number of arguments is not equal to one, the program displays an error message "The number of arguments is not one. Enter the filen name::" and ignores the command line arguments and just takes the input form the keyboard(sys.stdin),runs the algorithm on it and displays the output calculated.
-
-When the Filename mentioned in the command line does not exist in the directory, the program displays an error message "The specified file does not exist, Enter another file name:" and ignores the command line arguments and just takes the input form the keyboard(sys.stdin),runs the algorithm on it and displays the output calculated.
- 
 
 CONTRIBUTORS
 --------------------------------------------------------------------------------------

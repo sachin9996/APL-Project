@@ -9,10 +9,10 @@ if(len(sys.argv)==2):
 	try:
 		test_graph = open(sys.argv[1] ,'r')
 	except IOError:                     
-		print "The specified file does not exist, Enter another file name:"
-		test_graph=sys.stdin
+		print "The specified input file does not exist."
+		exit(0)
 else:
-	print "The number of arguments is not one. Enter the file name:"
+	print "\nPlease enter the input as specified in the README file:\n"
 	test_graph= sys.stdin
 
 graph, nodes, edges = inp_graph(test_graph)
