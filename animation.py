@@ -2,7 +2,6 @@
 Custom Animation Library
 
 """
-
 import cv2
 
 window_name = "Tarjan's Algorithm - Strongly Connected Components"
@@ -17,15 +16,17 @@ def image_path(folder,i):
 
 def show_image(img,delay):
 	img = cv2.imread(img)
-	#img = cv2.resize(img, (0,0), fx=0.5, fy=0.5) 
-	cv2.namedWindow(window_name, cv2.WINDOW_NORMAL)
  	cv2.imshow(window_name,img)
  	cv2.waitKey(int(delay))
 
 # Displays the working of the algorithm sequentially at the given fps
 
 def start_animation(n,folder='Pictures',fps=1):
+
+	cv2.namedWindow(window_name, cv2.WINDOW_NORMAL)
+
 	for i in range(0,n):
   		show_image(image_path(folder,i),1.0*1000/(fps))
+
   	cv2.waitKey(0)
 	cv2.destroyAllWindows()
