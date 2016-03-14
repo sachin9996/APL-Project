@@ -3,6 +3,38 @@ Custom Animation Library
 
 """
 
+try:
+	import cv3
+
+	window_name = "Tarjan's Algorithm - Strongly Connected Components"
+
+	# Defines the image path
+
+	def image_path(folder,i):
+		return './'+folder+'/'+str(i)+'.png'
+
+	# Function which displays 'img' in a window named 'Tarjan's Algorithm - Strongly Connected Components' 
+	# and waits 'delay' seconds before moving on to load the next
+
+	def show_image(img,delay):
+		img = cv2.imread(img)
+		cv2.namedWindow(window_name, cv2.WINDOW_NORMAL)
+	 	cv2.imshow(window_name,img)
+	 	cv2.waitKey(int(delay))
+
+	# Displays the working of the algorithm sequentially at the given fps using opencv
+
+	def animate_cv(n,folder='Pictures',fps=1):
+		for i in range(0,n):
+	  		show_image(image_path(folder,i),1.0*1000/(fps))
+		
+		print 'Press enter to go to slideshow mode'
+	  	cv2.waitKey(0)
+		cv2.destroyAllWindows()
+
+except ImportError:
+	pass
+
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import numpy as np
@@ -10,7 +42,7 @@ curr_image = 0
 
 # Displays the working of the algorithm sequentially at the given fps using matplotlib
 
-def animate(n, fps=1):
+def animate_mpl(n, fps=1):
 	delay = 1.0/fps
 	for i in range(n):
 	    if i == 0:
@@ -24,7 +56,7 @@ def animate(n, fps=1):
 	    	img = mpimg.imread(filename)
 	    	show.set_data(img) # Update performed
 
-	    plt.pause(delay)
+	    plt.pause(delay) # Give a gap between images
 	plt.pause(delay)
 
 #Displays the images one at a time. Navigate through them using the arrow keys
@@ -38,6 +70,11 @@ def slideshow(n):
 	pictures[0] = plt.imshow(images[0], hold = 	True, extent = extent, aspect = ratio)
 	for i in range(1,n):
 		pictures[i].set_visible(False) # But all except one are not visible
+
+	print 'Slideshow mode: Navigate through the images using the arrow keys'
+	print 'up/right -> Next image'
+	print 'down/left -> Previous image'
+	print 'The program will terminate after this window is closed'
 
 	def toggle_images(event):
 		global curr_image

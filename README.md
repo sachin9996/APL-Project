@@ -23,17 +23,18 @@ The output shows step by step animation of visiting each node, isolating the str
 REQUIRED MODULES
 --------------------------------------------------------------------------------------
 
-Opencv has to be installed for the library cv2 by typing the following command in the terminal : sudo apt-get install python-opencv
+Optional: Opencv to be installed for the library cv2 by typing the following command in the terminal : sudo apt-get install python-opencv
+
+The library matplotlib is used if cv2 is not available.
 
 
  The following external python modules/libraries are required to execute the program:
 
  	1.graphviz
  	2.matplotlib
- 	3.cv2 
- 	4.random
- 	5.functools
- 	6.sys
+ 	3.random
+ 	4.functools
+ 	5.sys
 
 DETAILS OF OTHER FILES IN THE FOLDER
 ---------------------------------------------------------------------------------------

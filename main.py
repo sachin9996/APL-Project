@@ -20,5 +20,11 @@ disp_graph(graph, nodes, edges, 'Pictures/0')
 
 n = tarjan.tarjan_SCC(graph, nodes, edges)
 
-animation.animate(n, fps=1)
+print 'x/y next to each node represents index/lowlink'
+try:
+	import cv3
+	animation.animate_cv(n, fps=1)
+except ImportError:
+	animation.animate_mpl(n, fps=1)
+
 animation.slideshow(n)
