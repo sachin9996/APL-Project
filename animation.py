@@ -57,17 +57,18 @@ def animate2(n, fps=1):
 
 def slideshow(n):
 	filenames = ['./Pictures/' + str(i) + '.png' for i in range(n)]
-	images = [mpimg.imread(f) for f in filenames]
+	images = [mpimg.imread(f) for f in filenames] # Getting the images
+	ratio = len(images[0])*1.0/len(images[0][0])
 	extent = (0, 1, 0, 1)
-	pictures = [plt.imshow(images[i], extent=extent, aspect='auto') for i in range(n)]
-	pictures[0] = plt.imshow(images[0], hold=True, extent=extent, aspect = 'auto')
+	pictures = [plt.imshow(images[i], extent = extent, aspect = ratio) for i in range(n)] #Draws all the pictures
+	pictures[0] = plt.imshow(images[0], hold = 	True, extent = extent, aspect = ratio)
 	for i in range(1,n):
-		pictures[i].set_visible(False)
+		pictures[i].set_visible(False) # But all except one are not visible
 
 	def toggle_images(event):
 		global curr_image
 
-		if event.key == 'right' or event.key == 'up':
+		if event.key == 'right' or event.key == 'up': # Navigate to next image
 			new_image = curr_image + 1
 			new_image %= n
 			pictures[new_image].set_visible(True)
@@ -75,7 +76,7 @@ def slideshow(n):
 			curr_image = new_image
 			plt.draw()
 
-		elif event.key == 'left' or event.key == 'down':
+		elif event.key == 'left' or event.key == 'down': # Navigate to previous image
 			new_image = curr_image - 1
 			new_image %= n
 			pictures[new_image].set_visible(True)
@@ -86,5 +87,5 @@ def slideshow(n):
 			return
 		plt.draw()
 
-	plt.connect('key_press_event', toggle_images)
-	plt.show()
+	plt.connect('key_press_event', toggle_images) # Binding to key press event
+	plt.show() # Showing the drawing
