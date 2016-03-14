@@ -4,7 +4,7 @@ Custom Animation Library
 """
 
 try:
-	import cv3
+	import cv2
 
 	window_name = "Tarjan's Algorithm - Strongly Connected Components"
 
