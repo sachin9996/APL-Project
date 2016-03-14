@@ -28,7 +28,7 @@ try:
 		for i in range(0,n):
 	  		show_image(image_path(folder,i),1.0*1000/(fps))
 		
-		print 'Press enter to go to slideshow mode'
+		print 'Press any key to go to slideshow mode'
 	  	cv2.waitKey(0)
 		cv2.destroyAllWindows()
 
@@ -44,6 +44,7 @@ curr_image = 0
 
 def animate_mpl(n, fps=1):
 	delay = 1.0/fps
+	plt.hold(True)
 	for i in range(n):
 	    if i == 0:
 	    	filename = './Pictures/' + str(i) + '.png'
