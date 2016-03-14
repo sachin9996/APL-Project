@@ -20,6 +20,5 @@ disp_graph(graph, nodes, edges, 'Pictures/0')
 
 n = tarjan.tarjan_SCC(graph, nodes, edges)
 
-#animation.animate1(n,'Pictures',0.5)
-animation.animate2(n, fps=2)
+animation.animate(n, fps=2)
 animation.slideshow(n)
