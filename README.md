@@ -19,6 +19,8 @@ BASIC DESCRIPTION OF TARJAN'S ALGORITHM:
  	A depth-first search begins from an arbitrary start node (and subsequent depth-first searches are conducted on any nodes that have not yet been found). As usual with depth-first search, the search visits every node of the graph exactly once, declining to revisit any node that has already been explored. Thus, the collection of search trees is a spanning forest of the graph. The strongly connected components will be recovered as certain subtrees of this forest. The roots of these subtrees are called the "roots" of the strongly connected components. Any node of a strongly connected component might serve as the root, if it happens to be the first node of the component that is discovered by the search.
  	 
 The output shows step by step animation of visiting each node, isolating the strongly connected components by visiting the nodes and shows the final output at the end.Nodes having the same color belong to the same component.
+
+The running time of the algorithm is O(|V|+|E|), linear in both the number of edges and vertices.
  	
 REQUIRED MODULES
 --------------------------------------------------------------------------------------
