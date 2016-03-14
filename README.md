@@ -90,7 +90,7 @@ EXECUTION
 
 The program should be executed in command line by the following command: python main.py input_file <optional,default=sys.stdin>
 	
-It takes the input graph specified through input file, given as command-line argument, and applies Tarjan's algorithm on it and displays the final result as a step by step animation of the working of the algorithm which finaly produces the graph with isolated strongly connected components.
+It takes the input graph specified through input file, given as command-line argument, and applies Tarjan's algorithm on it and displays the final result as a step by step animation of the working of the algorithm which finaly produces the graph with isolated strongly connected components. It then enters a slideshow mode where oen can navigate through the individual pictures using the arrow keys.
 
 CONTRIBUTORS
 --------------------------------------------------------------------------------------
