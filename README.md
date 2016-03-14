@@ -19,17 +19,18 @@ BASIC DESCRIPTION OF TARJAN'S ALGORITHM:
  	A depth-first search begins from an arbitrary start node (and subsequent depth-first searches are conducted on any nodes that have not yet been found). As usual with depth-first search, the search visits every node of the graph exactly once, declining to revisit any node that has already been explored. Thus, the collection of search trees is a spanning forest of the graph. The strongly connected components will be recovered as certain subtrees of this forest. The roots of these subtrees are called the "roots" of the strongly connected components. Any node of a strongly connected component might serve as the root, if it happens to be the first node of the component that is discovered by the search.
  	 
 The output shows step by step animation of visiting each node, isolating the strongly connected components by visiting the nodes and shows the final output at the end.Nodes having the same color belong to the same component.
-
-The running time of the algorithm is O(|V|+|E|), linear in both the number of edges and vertices.
  	
 REQUIRED MODULES
 --------------------------------------------------------------------------------------
+
+Opencv has to be installed for the library cv2 by typing the following command in the terminal : sudo apt-get install python-opencv
+
 
  The following external python modules/libraries are required to execute the program:
 
  	1.graphviz
  	2.matplotlib
- 	3.cv2
+ 	3.cv2 
  	4.random
  	5.functools
  	6.sys
@@ -43,7 +44,7 @@ It serves as a custom animation file for the program. It reads the graph images 
 			
 aux_data.py:
 
-This is a file that has a class that can be expanded for storing more information that just the key at each node of the graph. It currently has only one string that is set to "test data" by default. Since an object of this class is included in every node of the graph, this ensures modularity of the code since the class can be populated with anything.
+It has a class named data which takes a name and stores it in the class variable 'name'.
 
 graph.py:
 
@@ -90,7 +91,14 @@ EXECUTION
 
 The program should be executed in command line by the following command: python main.py input_file <optional,default=sys.stdin>
 	
-It takes the input graph specified through input file, given as command-line argument, and applies Tarjan's algorithm on it and displays the final result as a step by step animation of the working of the algorithm which finaly produces the graph with isolated strongly connected components. It then enters a slideshow mode where oen can navigate through the individual pictures using the arrow keys.
+It takes the input graph specified through input file, given as command-line argument, and applies Tarjan's algorithm on it and displays the final result as a step by step animation of the working of the algorithm which finaly produces the graph with isolated strongly connected components.
+
+Possible Errors:
+
+When the number of arguments is not equal to one, the program displays an error message "The number of arguments is not one. Enter the filen name::" and ignores the command line arguments and just takes the input form the keyboard(sys.stdin),runs the algorithm on it and displays the output calculated.
+
+When the Filename mentioned in the command line does not exist in the directory, the program displays an error message "The specified file does not exist, Enter another file name:" and ignores the command line arguments and just takes the input form the keyboard(sys.stdin),runs the algorithm on it and displays the output calculated.
+ 
 
 CONTRIBUTORS
 --------------------------------------------------------------------------------------
