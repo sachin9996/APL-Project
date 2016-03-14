@@ -3,32 +3,6 @@ Custom Animation Library
 
 """
 
-import cv2
-
-window_name = "Tarjan's Algorithm - Strongly Connected Components"
-
-# Defines the image path
-
-def image_path(folder,i):
-	return './'+folder+'/'+str(i)+'.png'
-
-# Function which displays 'img' in a window named 'Tarjan's Algorithm - Strongly Connected Components' 
-# and waits 'delay' seconds before moving on to load the next
-
-def show_image(img,delay):
-	img = cv2.imread(img)
-	cv2.namedWindow(window_name, cv2.WINDOW_NORMAL)
- 	cv2.imshow(window_name,img)
- 	cv2.waitKey(int(delay))
-
-# Displays the working of the algorithm sequentially at the given fps using opencv
-
-def animate1(n,folder='Pictures',fps=1):
-	for i in range(0,n):
-  		show_image(image_path(folder,i),1.0*1000/(fps))
-  	cv2.waitKey(0)
-	cv2.destroyAllWindows()
-
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import numpy as np
@@ -36,7 +10,7 @@ curr_image = 0
 
 # Displays the working of the algorithm sequentially at the given fps using matplotlib
 
-def animate2(n, fps=1):
+def animate(n, fps=1):
 	delay = 1.0/fps
 	for i in range(n):
 	    if i == 0:
