@@ -45,7 +45,7 @@ It serves as a custom animation file for the program. It reads the graph images 
 			
 aux_data.py:
 
-It has a class named data which takes a name and stores it in the class variable 'name'.
+This is a file that has a class that can be expanded for storing more information that just the key at each node of the graph. It currently has only one string that is set to "test data" by default. Since an object of this class is included in every node of the graph, this ensures modularity of the code since the class can be populated with anything.
 
 graph.py:
 
@@ -91,15 +91,8 @@ EXECUTION
 ---------------------------------------------------------------------------------------
 
 The program should be executed in command line by the following command: python main.py input_file <optional,default=sys.stdin>
-	
-It takes the input graph specified through input file, given as command-line argument, and applies Tarjan's algorithm on it and displays the final result as a step by step animation of the working of the algorithm which finaly produces the graph with isolated strongly connected components.
 
-Possible Errors:
-
-When the number of arguments is not equal to one, the program displays an error message "The number of arguments is not one. Enter the file name:" and ignores the command line arguments and just takes the input form the keyboard(sys.stdin),runs the algorithm on it and displays the output calculated.
-
-When the Filename mentioned in the command line does not exist in the directory, the program displays an error message "The specified file does not exist, Enter another file name:" and ignores the command line arguments and just takes the input form the keyboard(sys.stdin),runs the algorithm on it and displays the output calculated.
- 
+It takes the input graph specified through input file, given as command-line argument, and applies Tarjan's algorithm on it and displays the final result as a step by step animation of the working of the algorithm which finaly produces the graph with isolated strongly connected components. It then enters a slideshow mode where oen can navigate through the individual pictures using the arrow keys.
 
 CONTRIBUTORS
 --------------------------------------------------------------------------------------
